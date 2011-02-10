@@ -1,0 +1,37 @@
+using Nexus;
+
+namespace SoundInTheory.DynamicImage
+{
+	/// <summary>
+	/// Represents a perspective projection camera. 
+	/// </summary>
+	/// <remarks>
+	/// PerspectiveCamera specifies a projection of a 3-D model to a 2-D visual surface. This projection includes perspective foreshortening. 
+	/// In other words, the PerspectiveCamera describes a frustrum whose sides converge toward a point on the horizon. Objects closer to 
+	/// the camera appear larger, and objects farther from the camera appear smaller.
+	/// </remarks>
+	public class PerspectiveCamera : ProjectionCamera
+	{
+		/// <summary>
+		/// Gets or sets a value that represents the camera's horizontal field of view in radians. 
+		/// </summary>
+		public float FieldOfView
+		{
+			get { return (float)(ViewState["FieldOfView"] ?? MathUtility.PI_OVER_4); }
+			set { ViewState["FieldOfView"] = value; }
+		}
+
+		public override Nexus.Graphics.Cameras.Camera GetNexusCamera()
+		{
+			return new Nexus.Graphics.Cameras.PerspectiveCamera
+			{
+				FarPlaneDistance = FarPlaneDistance,
+				FieldOfView = FieldOfView,
+				LookDirection = LookDirection,
+				NearPlaneDistance = NearPlaneDistance,
+				Position = Position,
+				UpDirection = UpDirection
+			};
+		}
+	}
+}

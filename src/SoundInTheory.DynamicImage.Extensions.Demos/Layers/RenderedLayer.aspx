@@ -9,7 +9,8 @@
     <div>
 		<sitdap:DynamicImage runat="server">
 			<Layers>
-				<sitdap:RenderedLayer Width="1024" Height="768" SourceFileName="~/Assets/Models/3ds/85-nissan-fairlady.3ds" />
+				<sitdap:RenderedLayer Width="1024" Height="768" SourceFileName="~/Assets/Models/3ds/85-nissan-fairlady.3ds">
+				</sitdap:RenderedLayer>
 			</Layers>
 		</sitdap:DynamicImage>
     </div>
