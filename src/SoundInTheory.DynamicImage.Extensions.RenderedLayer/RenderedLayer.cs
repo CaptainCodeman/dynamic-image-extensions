@@ -6,11 +6,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using DotWarp;
 using Meshellator;
-using Nexus;
 using SoundInTheory.DynamicImage.Caching;
 using SoundInTheory.DynamicImage.Util;
-using Color = System.Windows.Media.Color;
-using Colors = System.Windows.Media.Colors;
 
 namespace SoundInTheory.DynamicImage
 {
@@ -57,27 +54,6 @@ namespace SoundInTheory.DynamicImage
 		{
 			get { return (int)(ViewState["Height"] ?? 300); }
 			set { ViewState["Height"] = value; }
-		}
-
-		[Browsable(true), DefaultValue(0)]
-		public int Yaw
-		{
-			get { return (int)(ViewState["Yaw"] ?? 0); }
-			set { ViewState["Yaw"] = value; }
-		}
-
-		[Browsable(true), DefaultValue(0)]
-		public int Pitch
-		{
-			get { return (int)(ViewState["Pitch"] ?? 0); }
-			set { ViewState["Pitch"] = value; }
-		}
-
-		[Browsable(true), DefaultValue(1)]
-		public float Zoom
-		{
-			get { return (float)(ViewState["Zoom"] ?? 1.0f); }
-			set { ViewState["Zoom"] = value; }
 		}
 
 		[DefaultValue(false)]
@@ -153,8 +129,8 @@ namespace SoundInTheory.DynamicImage
 				renderer.Options.LightingEnabled = LightingEnabled;
 
 				Nexus.Graphics.Cameras.Camera camera = (Camera != null && Camera.SingleSource != null)
-					? Camera.SingleSource.GetNexusCamera()
-					: Nexus.Graphics.Cameras.PerspectiveCamera.CreateFromBounds(scene.Bounds, MathUtility.PI_OVER_4, MathUtility.ToRadians(Yaw), MathUtility.ToRadians(-Pitch), Zoom);
+					? Camera.SingleSource.GetNexusCamera(scene)
+					: new AutoCamera().GetNexusCamera(scene);
 				BitmapSource renderedBitmap = renderer.Render(camera);
 				Bitmap = new FastBitmap(renderedBitmap);
 			}
@@ -209,6 +185,8 @@ namespace SoundInTheory.DynamicImage
 			triplet.First = base.SaveViewState(saveAll);
 			if (_source != null)
 				triplet.Second = ((IStateManagedObject)_source).SaveViewState(saveAll);
+			if (_camera != null)
+				triplet.Third = ((IStateManagedObject)_camera).SaveViewState(saveAll);
 			return (triplet.First == null && triplet.Second == null && triplet.Third == null) ? null : triplet;
 		}
 

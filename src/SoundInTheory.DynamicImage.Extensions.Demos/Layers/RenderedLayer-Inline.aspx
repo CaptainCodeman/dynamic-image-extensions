@@ -13,10 +13,10 @@
 					<Source>
 						<sitdap:InlineSceneSource>
 							<Meshes>
-						<sitdap:Mesh Positions="-10,15,-5 10,15,0 -10,0,-5 10,0,0" Normals="0,0,1 0,0,1 0,0,1 0,0,1" TextureCoordinates="0,0 1,0 0,1 1,1" Indices="0,1,2 2,1,3">
+						<sitdap:Mesh Positions="-15,15,-5 10,15,0 -20,0,-5 10,0,10" TextureCoordinates="0,0 1,0 0,1 1,1" Indices="0,1,2 2,1,3">
 							<Material TextureFileName="~/Assets/Photos/Koala.jpg" DiffuseColor="White" />
 						</sitdap:Mesh>
-						<sitdap:Mesh Positions="5,0,-2 10,10,0 15,0,-2" Indices="0,1,2">
+						<sitdap:Mesh Positions="5,0,-2 10,10,0 15,0,-2" Normals="0,0,1 0,0,1 0,0,1 0,0,1" Indices="0,1,2">
 							<Material DiffuseColor="Blue" />
 						</sitdap:Mesh>
 							</Meshes>

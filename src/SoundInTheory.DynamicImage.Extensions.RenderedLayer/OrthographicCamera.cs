@@ -1,3 +1,5 @@
+using Meshellator;
+
 namespace SoundInTheory.DynamicImage
 {
 	/// <summary>
@@ -24,7 +26,7 @@ namespace SoundInTheory.DynamicImage
 			set { ViewState["Width"] = value; }
 		}
 
-		public override Nexus.Graphics.Cameras.Camera GetNexusCamera()
+		public override Nexus.Graphics.Cameras.Camera GetNexusCamera(Scene scene)
 		{
 			return new Nexus.Graphics.Cameras.OrthographicCamera
 			{

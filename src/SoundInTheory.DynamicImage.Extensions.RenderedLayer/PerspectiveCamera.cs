@@ -1,3 +1,4 @@
+using Meshellator;
 using Nexus;
 
 namespace SoundInTheory.DynamicImage
@@ -21,7 +22,7 @@ namespace SoundInTheory.DynamicImage
 			set { ViewState["FieldOfView"] = value; }
 		}
 
-		public override Nexus.Graphics.Cameras.Camera GetNexusCamera()
+		public override Nexus.Graphics.Cameras.Camera GetNexusCamera(Scene scene)
 		{
 			return new Nexus.Graphics.Cameras.PerspectiveCamera
 			{

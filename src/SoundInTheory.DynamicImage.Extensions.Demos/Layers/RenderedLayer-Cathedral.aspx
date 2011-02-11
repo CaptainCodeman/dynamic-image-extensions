@@ -9,8 +9,12 @@
     <div>
 		<sitdap:DynamicImage runat="server">
 			<Layers>
-				<sitdap:RenderedLayer Width="600" Height="600" SourceFileName="~/Assets/Models/3ds/75Cathedral-model.3ds"
-					Zoom="0.75" Yaw="80" Pitch="20" BackgroundColour="CornflowerBlue" />
+				<sitdap:RenderedLayer Width="1200" Height="1200" SourceFileName="~/Assets/Models/3ds/75Cathedral-model.3ds"
+					BackgroundColour="CornflowerBlue">
+					<Camera>
+						<sitdap:AutoCamera Zoom="0.75" Yaw="80" Pitch="20" />
+					</Camera>
+				</sitdap:RenderedLayer>
 			</Layers>
 		</sitdap:DynamicImage>
     </div>
