@@ -154,7 +154,7 @@ namespace SoundInTheory.DynamicImage
 
 				Nexus.Graphics.Cameras.Camera camera = (Camera != null && Camera.SingleSource != null)
 					? Camera.SingleSource.GetNexusCamera()
-					: Nexus.Graphics.Cameras.PerspectiveCamera.CreateFromBounds(scene.Bounds, MathUtility.PI_OVER_4, MathUtility.ToRadians(Yaw), MathUtility.ToRadians(Pitch), Zoom);
+					: Nexus.Graphics.Cameras.PerspectiveCamera.CreateFromBounds(scene.Bounds, MathUtility.PI_OVER_4, MathUtility.ToRadians(Yaw), MathUtility.ToRadians(-Pitch), Zoom);
 				BitmapSource renderedBitmap = renderer.Render(camera);
 				Bitmap = new FastBitmap(renderedBitmap);
 			}

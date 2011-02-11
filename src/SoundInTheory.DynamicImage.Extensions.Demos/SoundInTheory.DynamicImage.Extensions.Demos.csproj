@@ -59,6 +59,7 @@
     <Content Include="Assets\Models\Obj\engine_diff_tex_small.png" />
     <Content Include="Assets\Models\Obj\turret_alt_diff_tex_small.png" />
     <Content Include="Assets\Photos\Koala.jpg" />
+    <Content Include="Layers\RenderedLayer-Tank.aspx" />
     <Content Include="Layers\RenderedLayer-Inline.aspx" />
     <Content Include="Layers\RenderedLayer-Car.aspx" />
     <Content Include="Web.config" />
