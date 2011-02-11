@@ -56,6 +56,13 @@ namespace SoundInTheory.DynamicImage
 			set { ViewState["Height"] = value; }
 		}
 
+		[DefaultValue(false)]
+		public bool ReverseWindingOrder
+		{
+			get { return (bool)(ViewState["ReverseWindingOrder"] ?? false); }
+			set { ViewState["ReverseWindingOrder"] = value; }
+		}
+
 		/// <summary>
 		/// Shortcut route to Source/FileMeshSource
 		/// </summary>
@@ -98,14 +105,17 @@ namespace SoundInTheory.DynamicImage
 
 		protected override void CreateImage()
 		{
-			using (WarpSceneRenderer renderer = new WarpSceneRenderer(Width, Height))
+			Scene scene = Source.SingleSource.GetScene(Site, DesignMode);
+			using (WarpSceneRenderer renderer = new WarpSceneRenderer(scene, Width, Height))
 			{
-				Scene scene = Source.SingleSource.GetScene(Site, DesignMode);
+				renderer.Initialize();
+
+				renderer.Options.TriangleWindingOrderReversed = ReverseWindingOrder;
 
 				Nexus.Graphics.Cameras.Camera camera = (Camera != null && Camera.SingleSource != null)
 					? Camera.SingleSource.GetNexusCamera()
-					: Nexus.Graphics.Cameras.PerspectiveCamera.CreateFromBounds(scene.Bounds, MathUtility.PI_OVER_4);
-				BitmapSource renderedBitmap = renderer.Render(scene, camera);
+					: Nexus.Graphics.Cameras.PerspectiveCamera.CreateFromBounds(scene.Bounds, MathUtility.PI_OVER_4, 0, 0);
+				BitmapSource renderedBitmap = renderer.Render(camera);
 				Bitmap = new FastBitmap(renderedBitmap);
 			}
 		}

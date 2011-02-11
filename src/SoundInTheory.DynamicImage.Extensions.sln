@@ -5,22 +5,63 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundInTheory.DynamicImage.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundInTheory.DynamicImage.Extensions.Demos", "SoundInTheory.DynamicImage.Extensions.Demos\SoundInTheory.DynamicImage.Extensions.Demos.csproj", "{54F7543C-98CF-460B-AC43-A9A6439AE057}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", "{C2976F6F-9D17-44DF-BA7D-5780FAC0EDE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nexus", "..\..\nexus\src\Nexus\Nexus.csproj", "{0E5E31FF-D903-40BD-A787-7DA4E1D30138}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meshellator", "..\..\meshellator\src\Meshellator\Meshellator.csproj", "{CEBA7681-E968-46F6-8C87-7005FAA98267}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotWarp", "..\..\dotwarp\src\DotWarp\DotWarp.csproj", "{666C7F74-F489-4AD7-BC16-77C71EA5E4B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{789BE1A0-2E7D-4663-B1B4-3A3D205C4A7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{789BE1A0-2E7D-4663-B1B4-3A3D205C4A7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{789BE1A0-2E7D-4663-B1B4-3A3D205C4A7E}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{789BE1A0-2E7D-4663-B1B4-3A3D205C4A7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{789BE1A0-2E7D-4663-B1B4-3A3D205C4A7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{789BE1A0-2E7D-4663-B1B4-3A3D205C4A7E}.Release|x86.ActiveCfg = Release|Any CPU
 		{54F7543C-98CF-460B-AC43-A9A6439AE057}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{54F7543C-98CF-460B-AC43-A9A6439AE057}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54F7543C-98CF-460B-AC43-A9A6439AE057}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{54F7543C-98CF-460B-AC43-A9A6439AE057}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54F7543C-98CF-460B-AC43-A9A6439AE057}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54F7543C-98CF-460B-AC43-A9A6439AE057}.Release|x86.ActiveCfg = Release|Any CPU
+		{0E5E31FF-D903-40BD-A787-7DA4E1D30138}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E5E31FF-D903-40BD-A787-7DA4E1D30138}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E5E31FF-D903-40BD-A787-7DA4E1D30138}.Debug|x86.ActiveCfg = Debug|x86
+		{0E5E31FF-D903-40BD-A787-7DA4E1D30138}.Debug|x86.Build.0 = Debug|x86
+		{0E5E31FF-D903-40BD-A787-7DA4E1D30138}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E5E31FF-D903-40BD-A787-7DA4E1D30138}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E5E31FF-D903-40BD-A787-7DA4E1D30138}.Release|x86.ActiveCfg = Release|x86
+		{0E5E31FF-D903-40BD-A787-7DA4E1D30138}.Release|x86.Build.0 = Release|x86
+		{CEBA7681-E968-46F6-8C87-7005FAA98267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEBA7681-E968-46F6-8C87-7005FAA98267}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEBA7681-E968-46F6-8C87-7005FAA98267}.Debug|x86.ActiveCfg = Debug|x86
+		{CEBA7681-E968-46F6-8C87-7005FAA98267}.Debug|x86.Build.0 = Debug|x86
+		{CEBA7681-E968-46F6-8C87-7005FAA98267}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEBA7681-E968-46F6-8C87-7005FAA98267}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEBA7681-E968-46F6-8C87-7005FAA98267}.Release|x86.ActiveCfg = Release|x86
+		{CEBA7681-E968-46F6-8C87-7005FAA98267}.Release|x86.Build.0 = Release|x86
+		{666C7F74-F489-4AD7-BC16-77C71EA5E4B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{666C7F74-F489-4AD7-BC16-77C71EA5E4B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{666C7F74-F489-4AD7-BC16-77C71EA5E4B0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{666C7F74-F489-4AD7-BC16-77C71EA5E4B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{666C7F74-F489-4AD7-BC16-77C71EA5E4B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{666C7F74-F489-4AD7-BC16-77C71EA5E4B0}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0E5E31FF-D903-40BD-A787-7DA4E1D30138} = {C2976F6F-9D17-44DF-BA7D-5780FAC0EDE3}
+		{CEBA7681-E968-46F6-8C87-7005FAA98267} = {C2976F6F-9D17-44DF-BA7D-5780FAC0EDE3}
+		{666C7F74-F489-4AD7-BC16-77C71EA5E4B0} = {C2976F6F-9D17-44DF-BA7D-5780FAC0EDE3}
 	EndGlobalSection
 EndGlobal

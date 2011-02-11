@@ -34,6 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SharpDX.Error">
+      <HintPath>..\..\lib\DotWarp\SharpDX.Error.dll</HintPath>
+    </Reference>
     <Reference Include="SoundInTheory.DynamicImage">
       <HintPath>..\..\lib\DynamicImage\SoundInTheory.DynamicImage.dll</HintPath>
     </Reference>
@@ -57,6 +60,8 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Models\Obj\engine_diff_tex_small.png" />
+    <Content Include="Assets\Models\Obj\turret_alt_diff_tex_small.png" />
     <Content Include="Layers\RenderedLayer.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -77,6 +82,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\3ds\85-nissan-fairlady.3DS" />
+    <None Include="Assets\Models\3ds\75Cathedral-model.3DS" />
+    <None Include="Assets\Models\Obj\Tank.mtl" />
+    <None Include="Assets\Models\Obj\Tank.obj" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -31,15 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DotWarp">
-      <HintPath>..\..\lib\DotWarp\DotWarp.dll</HintPath>
-    </Reference>
-    <Reference Include="Meshellator">
-      <HintPath>..\..\lib\DotWarp\Meshellator.dll</HintPath>
-    </Reference>
-    <Reference Include="Nexus">
-      <HintPath>..\..\lib\DotWarp\Nexus.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="SoundInTheory.DynamicImage">
       <HintPath>..\..\lib\DynamicImage\SoundInTheory.DynamicImage.dll</HintPath>
@@ -65,6 +56,20 @@
     <Compile Include="RenderedLayer.cs" />
     <Compile Include="SceneSource.cs" />
     <Compile Include="SceneSourceCollection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\dotwarp\src\DotWarp\DotWarp.csproj">
+      <Project>{666C7F74-F489-4AD7-BC16-77C71EA5E4B0}</Project>
+      <Name>DotWarp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\meshellator\src\Meshellator\Meshellator.csproj">
+      <Project>{CEBA7681-E968-46F6-8C87-7005FAA98267}</Project>
+      <Name>Meshellator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\nexus\src\Nexus\Nexus.csproj">
+      <Project>{0E5E31FF-D903-40BD-A787-7DA4E1D30138}</Project>
+      <Name>Nexus</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
