@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Web.UI;
 using System.Windows.Media;
 
 namespace SoundInTheory.DynamicImage
@@ -19,11 +20,11 @@ namespace SoundInTheory.DynamicImage
 			set { ViewState["SpecularColor"] = value; }
 		}
 
-		[DefaultValue("")]
-		public string TextureName
+		[DefaultValue(""), UrlProperty]
+		public string TextureFileName
 		{
-			get { return (string)(ViewState["TextureName"] ?? string.Empty); }
-			set { ViewState["TextureName"] = value; }
+			get { return (string)(ViewState["TextureFileName"] ?? string.Empty); }
+			set { ViewState["TextureFileName"] = value; }
 		}
 
 		[DefaultValue(16)]

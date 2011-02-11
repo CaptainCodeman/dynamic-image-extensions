@@ -1,8 +1,10 @@
 using System;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Web.UI;
 using Meshellator;
+using SoundInTheory.DynamicImage.Sources;
 using SoundInTheory.DynamicImage.Util;
 
 namespace SoundInTheory.DynamicImage
@@ -45,13 +47,20 @@ namespace SoundInTheory.DynamicImage
 				scene.Meshes.Add(meshellatorMesh);
 
 				meshellatorMesh.Positions.AddRange(mesh.Positions.Select(p => new Nexus.Point3D(p.X, p.Y, p.Z)));
-				meshellatorMesh.Indices.AddRange(mesh.Indices.Select(i => i.Value));
-
+				meshellatorMesh.TextureCoordinates.AddRange(mesh.TextureCoordinates.Select(p => new Nexus.Point3D(p.X, p.Y, 0)));
 				MeshUtility.CalculateNormals(meshellatorMesh, false);
+
+				meshellatorMesh.Indices.AddRange(mesh.Indices.Select(i => i.Value));
 
 				Meshellator.Material meshellatorMaterial = new Meshellator.Material();
 				meshellatorMaterial.DiffuseColor = ConversionUtility.ToNexusColorRgbF(mesh.Material.DiffuseColor);
-				meshellatorMaterial.DiffuseTextureName = mesh.Material.TextureName;
+				if (!string.IsNullOrEmpty(mesh.Material.TextureFileName))
+				{
+					string textureFileName = FileSourceHelper.ResolveFileName(mesh.Material.TextureFileName, Site, DesignMode);
+					if (!File.Exists(textureFileName))
+						throw new DynamicImageException("Could not find texture '" + mesh.Material.TextureFileName + "'.");
+					meshellatorMaterial.DiffuseTextureName = textureFileName;
+				}
 				meshellatorMaterial.Shininess = mesh.Material.Shininess;
 				meshellatorMaterial.SpecularColor = ConversionUtility.ToNexusColorRgbF(mesh.Material.SpecularColor);
 				meshellatorMaterial.Transparency = mesh.Material.Transparency;

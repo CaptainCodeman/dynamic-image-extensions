@@ -45,6 +45,10 @@
   <ItemGroup>
     <Compile Include="Camera.cs" />
     <Compile Include="CameraCollection.cs" />
+    <Compile Include="Design\Point2DCollectionConverter.cs" />
+    <Compile Include="Design\Point2DConverter.cs" />
+    <Compile Include="Point2D.cs" />
+    <Compile Include="Point2DCollection.cs" />
     <Compile Include="Design\Vector3DCollectionConverter.cs" />
     <Compile Include="Design\Vector3DConverter.cs" />
     <Compile Include="Vector3DCollection.cs" />

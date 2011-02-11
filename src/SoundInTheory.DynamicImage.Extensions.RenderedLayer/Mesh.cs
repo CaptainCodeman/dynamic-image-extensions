@@ -8,6 +8,7 @@ namespace SoundInTheory.DynamicImage
 	{
 		private Point3DCollection _positions;
 		private Vector3DCollection _normals;
+		private Point2DCollection _textureCoordinates;
 		private IndexCollection _indices;
 		private Material _material;
 
@@ -56,6 +57,30 @@ namespace SoundInTheory.DynamicImage
 				_normals = value;
 				if (((IStateManager)this).IsTrackingViewState)
 					((IStateManager)_normals).TrackViewState();
+			}
+		}
+
+		[Browsable(true), NotifyParentProperty(true)]
+		public Point2DCollection TextureCoordinates
+		{
+			get
+			{
+				if (_textureCoordinates == null)
+				{
+					_textureCoordinates = new Point2DCollection();
+					if (((IStateManager)this).IsTrackingViewState)
+						((IStateManager)_textureCoordinates).TrackViewState();
+				}
+				return _textureCoordinates;
+			}
+			set
+			{
+				if (_textureCoordinates != null)
+					throw new Exception("You can only set new texture coordinates if one does not already exist");
+
+				_textureCoordinates = value;
+				if (((IStateManager)this).IsTrackingViewState)
+					((IStateManager)_textureCoordinates).TrackViewState();
 			}
 		}
 
@@ -134,11 +159,13 @@ namespace SoundInTheory.DynamicImage
 				}
 				if (triplet.Third != null)
 				{
-					Pair pair = (Pair)triplet.Third;
+					Triplet pair = (Triplet)triplet.Third;
 					if (pair.First != null)
 						((IStateManager)Indices).LoadViewState(pair.First);
 					if (pair.Second != null)
 						((IStateManager)Material).LoadViewState(pair.Second);
+					if (pair.Third != null)
+						((IStateManager)TextureCoordinates).LoadViewState(pair.Third);
 				}
 			}
 		}
@@ -159,12 +186,14 @@ namespace SoundInTheory.DynamicImage
 				((Pair) triplet.Second).First = ((IStateManagedObject)_positions).SaveViewState(saveAll);
 			if (_normals != null)
 				((Pair)triplet.Second).Second = ((IStateManagedObject)_normals).SaveViewState(saveAll);
-			if (_indices != null || _material != null)
-				triplet.Third = new Pair();
+			if (_indices != null || _material != null || _textureCoordinates != null)
+				triplet.Third = new Triplet();
 			if (_indices != null)
-				((Pair)triplet.Third).First = ((IStateManagedObject)_indices).SaveViewState(saveAll);
+				((Triplet)triplet.Third).First = ((IStateManagedObject)_indices).SaveViewState(saveAll);
 			if (_material != null)
-				((Pair)triplet.Third).Second = ((IStateManagedObject)_material).SaveViewState(saveAll);
+				((Triplet)triplet.Third).Second = ((IStateManagedObject)_material).SaveViewState(saveAll);
+			if (_textureCoordinates != null)
+				((Triplet)triplet.Third).Third = ((IStateManagedObject)_textureCoordinates).SaveViewState(saveAll);
 			return (triplet.First == null && triplet.Second == null && triplet.Third == null) ? null : triplet;
 		}
 
@@ -182,6 +211,8 @@ namespace SoundInTheory.DynamicImage
 				((IStateManager)_indices).TrackViewState();
 			if (_material != null)
 				((IStateManager)_material).TrackViewState();
+			if (_textureCoordinates != null)
+				((IStateManager)_textureCoordinates).TrackViewState();
 		}
 
 		#endregion

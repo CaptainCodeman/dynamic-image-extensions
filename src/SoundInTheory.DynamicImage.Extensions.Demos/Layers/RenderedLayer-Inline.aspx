@@ -9,16 +9,16 @@
     <div>
 		<sitdap:DynamicImage runat="server">
 			<Layers>
-				<sitdap:RenderedLayer Width="600" Height="300" BackgroundColour="LightBlue">
+				<sitdap:RenderedLayer Width="600" Height="300" BackgroundColour="LightBlue" LightingEnabled="false">
 					<Source>
 						<sitdap:InlineSceneSource>
 							<Meshes>
-								<sitdap:Mesh Positions="-5,0,0 0,5,0 5,0,0" Normals="0,0,1 0,0,1 0,0,1" Indices="0,1,2">
-									<Material DiffuseColor="Red" />
-								</sitdap:Mesh>
-								<sitdap:Mesh Positions="5,0,-2 10,10,0 15,0,-2" Indices="0,1,2">
-									<Material DiffuseColor="Blue" />
-								</sitdap:Mesh>
+						<sitdap:Mesh Positions="-10,15,-5 10,15,0 -10,0,-5 10,0,0" Normals="0,0,1 0,0,1 0,0,1 0,0,1" TextureCoordinates="0,0 1,0 0,1 1,1" Indices="0,1,2 2,1,3">
+							<Material TextureFileName="~/Assets/Photos/Koala.jpg" DiffuseColor="White" />
+						</sitdap:Mesh>
+						<sitdap:Mesh Positions="5,0,-2 10,10,0 15,0,-2" Indices="0,1,2">
+							<Material DiffuseColor="Blue" />
+						</sitdap:Mesh>
 							</Meshes>
 						</sitdap:InlineSceneSource>
 					</Source>

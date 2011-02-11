@@ -94,6 +94,13 @@ namespace SoundInTheory.DynamicImage
 			set { ViewState["BackgroundColour"] = value; }
 		}
 
+		[DefaultValue(true)]
+		public bool LightingEnabled
+		{
+			get { return (bool)(ViewState["LightingEnabled"] ?? true); }
+			set { ViewState["LightingEnabled"] = value; }
+		}
+
 		/// <summary>
 		/// Shortcut route to Source/FileMeshSource
 		/// </summary>
@@ -143,6 +150,7 @@ namespace SoundInTheory.DynamicImage
 
 				renderer.Options.TriangleWindingOrderReversed = ReverseWindingOrder;
 				renderer.Options.BackgroundColor = new Nexus.Color(BackgroundColour.A, BackgroundColour.R, BackgroundColour.G, BackgroundColour.B);
+				renderer.Options.LightingEnabled = LightingEnabled;
 
 				Nexus.Graphics.Cameras.Camera camera = (Camera != null && Camera.SingleSource != null)
 					? Camera.SingleSource.GetNexusCamera()
