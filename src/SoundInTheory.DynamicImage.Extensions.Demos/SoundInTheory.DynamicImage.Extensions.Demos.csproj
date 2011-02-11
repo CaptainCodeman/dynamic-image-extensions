@@ -13,7 +13,6 @@
     <RootNamespace>SoundInTheory.DynamicImage.Extensions.Demos</RootNamespace>
     <AssemblyName>SoundInTheory.DynamicImage.Extensions.Demos</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,9 +36,6 @@
     <Reference Include="SharpDX.Error">
       <HintPath>..\..\lib\DotWarp\SharpDX.Error.dll</HintPath>
     </Reference>
-    <Reference Include="SoundInTheory.DynamicImage">
-      <HintPath>..\..\lib\DynamicImage\SoundInTheory.DynamicImage.dll</HintPath>
-    </Reference>
     <Reference Include="SoundInTheory.DynamicImage.Caching.Sql">
       <HintPath>..\..\lib\DynamicImage\SoundInTheory.DynamicImage.Caching.Sql.dll</HintPath>
     </Reference>
@@ -62,7 +58,8 @@
   <ItemGroup>
     <Content Include="Assets\Models\Obj\engine_diff_tex_small.png" />
     <Content Include="Assets\Models\Obj\turret_alt_diff_tex_small.png" />
-    <Content Include="Layers\RenderedLayer.aspx" />
+    <Content Include="Layers\RenderedLayer-Inline.aspx" />
+    <Content Include="Layers\RenderedLayer-Car.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -75,6 +72,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\dynamic-image\Source\SoundInTheory.DynamicImage\SoundInTheory.DynamicImage.csproj">
+      <Project>{15F7FF82-B018-42E0-A94D-2CAAE491C248}</Project>
+      <Name>SoundInTheory.DynamicImage</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.RenderedLayer\SoundInTheory.DynamicImage.Extensions.RenderedLayer.csproj">
       <Project>{789BE1A0-2E7D-4663-B1B4-3A3D205C4A7E}</Project>
       <Name>SoundInTheory.DynamicImage.Extensions.RenderedLayer</Name>
@@ -92,7 +93,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1385</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

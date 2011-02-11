@@ -29,7 +29,7 @@ namespace SoundInTheory.DynamicImage
 				FieldOfView = FieldOfView,
 				LookDirection = LookDirection,
 				NearPlaneDistance = NearPlaneDistance,
-				Position = Position,
+				Position = new Nexus.Point3D(Position.X, Position.Y, Position.Z),
 				UpDirection = UpDirection
 			};
 		}

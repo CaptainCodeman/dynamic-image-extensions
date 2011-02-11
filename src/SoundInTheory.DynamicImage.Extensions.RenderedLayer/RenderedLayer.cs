@@ -2,12 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Web.UI;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using DotWarp;
 using Meshellator;
 using Nexus;
 using SoundInTheory.DynamicImage.Caching;
 using SoundInTheory.DynamicImage.Util;
+using Color = System.Windows.Media.Color;
+using Colors = System.Windows.Media.Colors;
 
 namespace SoundInTheory.DynamicImage
 {
@@ -56,11 +59,39 @@ namespace SoundInTheory.DynamicImage
 			set { ViewState["Height"] = value; }
 		}
 
+		[Browsable(true), DefaultValue(0)]
+		public int Yaw
+		{
+			get { return (int)(ViewState["Yaw"] ?? 0); }
+			set { ViewState["Yaw"] = value; }
+		}
+
+		[Browsable(true), DefaultValue(0)]
+		public int Pitch
+		{
+			get { return (int)(ViewState["Pitch"] ?? 0); }
+			set { ViewState["Pitch"] = value; }
+		}
+
+		[Browsable(true), DefaultValue(1)]
+		public float Zoom
+		{
+			get { return (float)(ViewState["Zoom"] ?? 1.0f); }
+			set { ViewState["Zoom"] = value; }
+		}
+
 		[DefaultValue(false)]
 		public bool ReverseWindingOrder
 		{
 			get { return (bool)(ViewState["ReverseWindingOrder"] ?? false); }
 			set { ViewState["ReverseWindingOrder"] = value; }
+		}
+
+		[Browsable(true), DefaultValue(typeof(Colors), "White"), TypeConverter(typeof(ColorConverter))]
+		public Color BackgroundColour
+		{
+			get { return (Color) (ViewState["BackgroundColour"] ?? Colors.White); }
+			set { ViewState["BackgroundColour"] = value; }
 		}
 
 		/// <summary>
@@ -111,10 +142,11 @@ namespace SoundInTheory.DynamicImage
 				renderer.Initialize();
 
 				renderer.Options.TriangleWindingOrderReversed = ReverseWindingOrder;
+				renderer.Options.BackgroundColor = new Nexus.Color(BackgroundColour.A, BackgroundColour.R, BackgroundColour.G, BackgroundColour.B);
 
 				Nexus.Graphics.Cameras.Camera camera = (Camera != null && Camera.SingleSource != null)
 					? Camera.SingleSource.GetNexusCamera()
-					: Nexus.Graphics.Cameras.PerspectiveCamera.CreateFromBounds(scene.Bounds, MathUtility.PI_OVER_4, 0, 0);
+					: Nexus.Graphics.Cameras.PerspectiveCamera.CreateFromBounds(scene.Bounds, MathUtility.PI_OVER_4, MathUtility.ToRadians(Yaw), MathUtility.ToRadians(Pitch), Zoom);
 				BitmapSource renderedBitmap = renderer.Render(camera);
 				Bitmap = new FastBitmap(renderedBitmap);
 			}
