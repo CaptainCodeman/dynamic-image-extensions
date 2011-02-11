@@ -45,8 +45,9 @@ namespace SoundInTheory.DynamicImage
 				scene.Meshes.Add(meshellatorMesh);
 
 				meshellatorMesh.Positions.AddRange(mesh.Positions.Select(p => new Nexus.Point3D(p.X, p.Y, p.Z)));
-				meshellatorMesh.Normals.AddRange(mesh.Positions.Select(p => new Nexus.Vector3D(0, 0, 0))); // TODO
 				meshellatorMesh.Indices.AddRange(mesh.Indices.Select(i => i.Value));
+
+				MeshUtility.CalculateNormals(meshellatorMesh, false);
 
 				Meshellator.Material meshellatorMaterial = new Meshellator.Material();
 				meshellatorMaterial.DiffuseColor = ConversionUtility.ToNexusColorRgbF(mesh.Material.DiffuseColor);

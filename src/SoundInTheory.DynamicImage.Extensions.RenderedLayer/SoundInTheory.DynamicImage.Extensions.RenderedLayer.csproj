@@ -45,6 +45,10 @@
   <ItemGroup>
     <Compile Include="Camera.cs" />
     <Compile Include="CameraCollection.cs" />
+    <Compile Include="Design\Vector3DCollectionConverter.cs" />
+    <Compile Include="Design\Vector3DConverter.cs" />
+    <Compile Include="Vector3DCollection.cs" />
+    <Compile Include="Vector3D.cs" />
     <Compile Include="Design\IndexConverter.cs" />
     <Compile Include="Design\FieldPropertyDescriptor.cs" />
     <Compile Include="Design\IndexCollectionConverter.cs" />

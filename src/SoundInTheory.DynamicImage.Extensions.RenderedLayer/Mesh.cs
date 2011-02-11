@@ -7,6 +7,7 @@ namespace SoundInTheory.DynamicImage
 	public class Mesh : DataBoundObject
 	{
 		private Point3DCollection _positions;
+		private Vector3DCollection _normals;
 		private IndexCollection _indices;
 		private Material _material;
 
@@ -31,6 +32,30 @@ namespace SoundInTheory.DynamicImage
 				_positions = value;
 				if (((IStateManager)this).IsTrackingViewState)
 					((IStateManager)_positions).TrackViewState();
+			}
+		}
+
+		[Browsable(true), NotifyParentProperty(true)]
+		public Vector3DCollection Normals
+		{
+			get
+			{
+				if (_normals == null)
+				{
+					_normals = new Vector3DCollection();
+					if (((IStateManager)this).IsTrackingViewState)
+						((IStateManager)_normals).TrackViewState();
+				}
+				return _normals;
+			}
+			set
+			{
+				if (_normals != null)
+					throw new Exception("You can only set new normals if one does not already exist");
+
+				_normals = value;
+				if (((IStateManager)this).IsTrackingViewState)
+					((IStateManager)_normals).TrackViewState();
 			}
 		}
 
@@ -100,7 +125,13 @@ namespace SoundInTheory.DynamicImage
 				if (triplet.First != null)
 					base.LoadViewState(triplet.First);
 				if (triplet.Second != null)
-					((IStateManager)Positions).LoadViewState(triplet.Second);
+				{
+					Pair pair = (Pair)triplet.Second;
+					if (pair.First != null)
+						((IStateManager)Positions).LoadViewState(pair.First);
+					if (pair.Second != null)
+						((IStateManager)Normals).LoadViewState(pair.Second);
+				}
 				if (triplet.Third != null)
 				{
 					Pair pair = (Pair)triplet.Third;
@@ -122,8 +153,12 @@ namespace SoundInTheory.DynamicImage
 		{
 			Triplet triplet = new Triplet();
 			triplet.First = base.SaveViewState(saveAll);
+			if (_positions != null || _normals != null)
+				triplet.Second = new Pair();
 			if (_positions != null)
-				triplet.Second = ((IStateManagedObject)_positions).SaveViewState(saveAll);
+				((Pair) triplet.Second).First = ((IStateManagedObject)_positions).SaveViewState(saveAll);
+			if (_normals != null)
+				((Pair)triplet.Second).Second = ((IStateManagedObject)_normals).SaveViewState(saveAll);
 			if (_indices != null || _material != null)
 				triplet.Third = new Pair();
 			if (_indices != null)
@@ -141,6 +176,8 @@ namespace SoundInTheory.DynamicImage
 			base.TrackViewState();
 			if (_positions != null)
 				((IStateManager)_positions).TrackViewState();
+			if (_normals != null)
+				((IStateManager)_normals).TrackViewState();
 			if (_indices != null)
 				((IStateManager)_indices).TrackViewState();
 			if (_material != null)

@@ -27,10 +27,10 @@ namespace SoundInTheory.DynamicImage
 			{
 				FarPlaneDistance = FarPlaneDistance,
 				FieldOfView = FieldOfView,
-				LookDirection = LookDirection,
+				LookDirection = new Nexus.Vector3D(LookDirection.X, LookDirection.Y, LookDirection.Z),
 				NearPlaneDistance = NearPlaneDistance,
 				Position = new Nexus.Point3D(Position.X, Position.Y, Position.Z),
-				UpDirection = UpDirection
+				UpDirection = new Nexus.Vector3D(UpDirection.X, UpDirection.Y, UpDirection.Z)
 			};
 		}
 	}

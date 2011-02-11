@@ -10,15 +10,14 @@
 		<sitdap:DynamicImage runat="server">
 			<Layers>
 				<sitdap:RenderedLayer Width="600" Height="300" BackgroundColour="LightBlue">
-					<Camera>
-						<sitdap:PerspectiveCamera Position="6 5 4" LookDirection="-6 -5 -4" />
-					</Camera>
 					<Source>
 						<sitdap:InlineSceneSource>
 							<Meshes>
-								<sitdap:Mesh Positions="0 0 0  1 0 0  0 1 0  1 1 0  0 0 1  1 0 1  0 1 1  1 1 1"
-									Indices="2 3 1  2 1 0  7 1 3  7 5 1  6 5 7  6 4 5  6 2 0  2 0 4  2 7 3  2 6 7  0 1 5  0 5 4">
+								<sitdap:Mesh Positions="-5,0,0 0,5,0 5,0,0" Normals="0,0,1 0,0,1 0,0,1" Indices="0,1,2">
 									<Material DiffuseColor="Red" />
+								</sitdap:Mesh>
+								<sitdap:Mesh Positions="5,0,-2 10,10,0 15,0,-2" Indices="0,1,2">
+									<Material DiffuseColor="Blue" />
 								</sitdap:Mesh>
 							</Meshes>
 						</sitdap:InlineSceneSource>
