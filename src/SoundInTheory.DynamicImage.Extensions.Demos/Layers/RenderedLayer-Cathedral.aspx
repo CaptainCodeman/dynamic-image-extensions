@@ -12,7 +12,7 @@
 				<sitdap:RenderedLayer Width="1200" Height="1200" SourceFileName="~/Assets/Models/3ds/75Cathedral-model.3ds"
 					BackgroundColour="CornflowerBlue">
 					<Camera>
-						<sitdap:AutoCamera Zoom="0.75" Yaw="80" Pitch="20" />
+						<sitdap:AutoCamera Yaw="80" Pitch="20" />
 					</Camera>
 				</sitdap:RenderedLayer>
 			</Layers>

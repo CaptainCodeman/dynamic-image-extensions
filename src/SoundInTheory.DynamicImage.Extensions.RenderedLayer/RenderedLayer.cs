@@ -6,6 +6,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using DotWarp;
 using Meshellator;
+using Nexus.Graphics;
 using SoundInTheory.DynamicImage.Caching;
 using SoundInTheory.DynamicImage.Util;
 
@@ -128,9 +129,10 @@ namespace SoundInTheory.DynamicImage
 				renderer.Options.BackgroundColor = new Nexus.Color(BackgroundColour.A, BackgroundColour.R, BackgroundColour.G, BackgroundColour.B);
 				renderer.Options.LightingEnabled = LightingEnabled;
 
+				Viewport viewport = new Viewport(0, 0, Width, Height);
 				Nexus.Graphics.Cameras.Camera camera = (Camera != null && Camera.SingleSource != null)
-					? Camera.SingleSource.GetNexusCamera(scene)
-					: new AutoCamera().GetNexusCamera(scene);
+					? Camera.SingleSource.GetNexusCamera(scene, viewport)
+					: new AutoCamera().GetNexusCamera(scene, viewport);
 				BitmapSource renderedBitmap = renderer.Render(camera);
 				Bitmap = new FastBitmap(renderedBitmap);
 			}

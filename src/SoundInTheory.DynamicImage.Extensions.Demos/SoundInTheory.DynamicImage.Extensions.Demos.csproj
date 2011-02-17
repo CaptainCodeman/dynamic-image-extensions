@@ -33,16 +33,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="SharpDX.Error">
-      <HintPath>..\..\lib\DotWarp\SharpDX.Error.dll</HintPath>
+    <Reference Include="SoundInTheory.DynamicImage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fa44558110383067, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DynamicImage.1.0.0.0\lib\NET40\SoundInTheory.DynamicImage.dll</HintPath>
     </Reference>
-    <Reference Include="SoundInTheory.DynamicImage.Caching.Sql">
-      <HintPath>..\..\lib\DynamicImage\SoundInTheory.DynamicImage.Caching.Sql.dll</HintPath>
+    <Reference Include="SoundInTheory.DynamicImage.Caching.Sql, Version=1.0.0.0, Culture=neutral, PublicKeyToken=fa44558110383067, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DynamicImage.1.0.0.0\lib\NET40\SoundInTheory.DynamicImage.Caching.Sql.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\SqlServerCompact.4.0.8482.1\lib\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -56,14 +62,23 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\DynamicImage\CAIR.exe" />
+    <Content Include="App_Data\DynamicImage\CutyCapt.exe" />
+    <Content Include="App_Data\DynamicImage\pthreadVSE2.dll" />
     <Content Include="Assets\Models\Obj\engine_diff_tex_small.png" />
     <Content Include="Assets\Models\Obj\turret_alt_diff_tex_small.png" />
     <Content Include="Assets\Photos\Koala.jpg" />
+    <Content Include="Assets\Photos\Tower.jpg" />
+    <Content Include="Filters\ContentAwareResizeFilter.aspx" />
+    <Content Include="Layers\PdfLayer.aspx" />
     <Content Include="Layers\RenderedLayer-Cathedral.aspx" />
     <Content Include="Layers\RenderedLayer-Tank.aspx" />
     <Content Include="Layers\RenderedLayer-Inline.aspx" />
     <Content Include="Layers\RenderedLayer-Car.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Layers\WebsiteScreenshotLayer.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -75,13 +90,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\dynamic-image\Source\SoundInTheory.DynamicImage\SoundInTheory.DynamicImage.csproj">
-      <Project>{15F7FF82-B018-42E0-A94D-2CAAE491C248}</Project>
-      <Name>SoundInTheory.DynamicImage</Name>
+    <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.CairFilter\SoundInTheory.DynamicImage.Extensions.CairFilter.csproj">
+      <Project>{8331A331-78AB-4C35-824B-27908AB11065}</Project>
+      <Name>SoundInTheory.DynamicImage.Extensions.CairFilter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.PdfLayer\SoundInTheory.DynamicImage.Extensions.PdfLayer.csproj">
+      <Project>{F2B9BCE6-12C4-4BFA-B562-67E3982EE34E}</Project>
+      <Name>SoundInTheory.DynamicImage.Extensions.PdfLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.RenderedLayer\SoundInTheory.DynamicImage.Extensions.RenderedLayer.csproj">
       <Project>{789BE1A0-2E7D-4663-B1B4-3A3D205C4A7E}</Project>
       <Name>SoundInTheory.DynamicImage.Extensions.RenderedLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.WebsiteScreenshotLayer\SoundInTheory.DynamicImage.Extensions.WebsiteScreenshotLayer.csproj">
+      <Project>{FCB2559E-8CC6-40E2-882B-03C71533D859}</Project>
+      <Name>SoundInTheory.DynamicImage.Extensions.WebsiteScreenshotLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +112,8 @@
     <None Include="Assets\Models\3ds\75Cathedral-model.3DS" />
     <None Include="Assets\Models\Obj\Tank.mtl" />
     <None Include="Assets\Models\Obj\Tank.obj" />
+    <None Include="Assets\PDFs\pdf-test.pdf" />
+    <Content Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -110,6 +135,13 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+xcopy /s /y "$(SolutionDir)packages\SqlServerCompact.4.0.8482.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+xcopy /s /y "$(SolutionDir)packages\SqlServerCompact.4.0.8482.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -9,9 +9,9 @@
     <div>
 		<sitdap:DynamicImage runat="server">
 			<Layers>
-				<sitdap:RenderedLayer Width="600" Height="300" SourceFileName="~/Assets/Models/3ds/85-nissan-fairlady.3ds">
+				<sitdap:RenderedLayer Width="600" Height="600" SourceFileName="~/Assets/Models/3ds/85-nissan-fairlady.3ds">
 					<Camera>
-						<sitdap:AutoCamera Zoom="1.4" Yaw="135" Pitch="10" />
+						<sitdap:AutoCamera Yaw="45" Pitch="10" />
 					</Camera>
 				</sitdap:RenderedLayer>
 			</Layers>
@@ -21,7 +21,7 @@
 			<Layers>
 				<sitdap:RenderedLayer Width="400" Height="300" SourceFileName="~/Assets/Models/3ds/85-nissan-fairlady.3ds">
 					<Camera>
-						<sitdap:AutoCamera Zoom="1.1" Yaw="0" />
+						<sitdap:AutoCamera Yaw="0" />
 					</Camera>
 				</sitdap:RenderedLayer>
 			</Layers>
@@ -31,7 +31,7 @@
 			<Layers>
 				<sitdap:RenderedLayer Width="400" Height="300" SourceFileName="~/Assets/Models/3ds/85-nissan-fairlady.3ds">
 					<Camera>
-						<sitdap:AutoCamera Zoom="1.1" Yaw="45" />
+						<sitdap:AutoCamera Yaw="45" />
 					</Camera>
 				</sitdap:RenderedLayer>
 			</Layers>
@@ -41,7 +41,7 @@
 			<Layers>
 				<sitdap:RenderedLayer Width="400" Height="300" SourceFileName="~/Assets/Models/3ds/85-nissan-fairlady.3ds">
 					<Camera>
-						<sitdap:AutoCamera Zoom="1.1" Yaw="90" />
+						<sitdap:AutoCamera Yaw="90" />
 					</Camera>
 				</sitdap:RenderedLayer>
 			</Layers>
@@ -51,7 +51,7 @@
 			<Layers>
 				<sitdap:RenderedLayer Width="400" Height="300" SourceFileName="~/Assets/Models/3ds/85-nissan-fairlady.3ds">
 					<Camera>
-						<sitdap:AutoCamera Zoom="1.1" Yaw="135" />
+						<sitdap:AutoCamera Yaw="135" />
 					</Camera>
 				</sitdap:RenderedLayer>
 			</Layers>
@@ -61,7 +61,7 @@
 			<Layers>
 				<sitdap:RenderedLayer Width="400" Height="300" SourceFileName="~/Assets/Models/3ds/85-nissan-fairlady.3ds">
 					<Camera>
-						<sitdap:AutoCamera Zoom="1.1" Yaw="180" />
+						<sitdap:AutoCamera Yaw="180" />
 					</Camera>
 				</sitdap:RenderedLayer>
 			</Layers>
@@ -71,7 +71,7 @@
 			<Layers>
 				<sitdap:RenderedLayer Width="400" Height="300" SourceFileName="~/Assets/Models/3ds/85-nissan-fairlady.3ds">
 					<Camera>
-						<sitdap:AutoCamera Zoom="1.1" Yaw="225" />
+						<sitdap:AutoCamera Yaw="225" />
 					</Camera>
 				</sitdap:RenderedLayer>
 			</Layers>
@@ -81,7 +81,7 @@
 			<Layers>
 				<sitdap:RenderedLayer Width="400" Height="300" SourceFileName="~/Assets/Models/3ds/85-nissan-fairlady.3ds">
 					<Camera>
-						<sitdap:AutoCamera Zoom="1.1" Yaw="270" />
+						<sitdap:AutoCamera Yaw="270" />
 					</Camera>
 				</sitdap:RenderedLayer>
 			</Layers>
@@ -91,7 +91,7 @@
 			<Layers>
 				<sitdap:RenderedLayer Width="400" Height="300" SourceFileName="~/Assets/Models/3ds/85-nissan-fairlady.3ds">
 					<Camera>
-						<sitdap:AutoCamera Zoom="1.1" Yaw="315" />
+						<sitdap:AutoCamera Yaw="315" />
 					</Camera>
 				</sitdap:RenderedLayer>
 			</Layers>

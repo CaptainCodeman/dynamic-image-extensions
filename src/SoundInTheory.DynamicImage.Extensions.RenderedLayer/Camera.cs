@@ -1,4 +1,5 @@
 using Meshellator;
+using Nexus.Graphics;
 
 namespace SoundInTheory.DynamicImage
 {
@@ -8,6 +9,6 @@ namespace SoundInTheory.DynamicImage
 	/// </summary>
 	public abstract class Camera : DataBoundObject
 	{
-		public abstract Nexus.Graphics.Cameras.Camera GetNexusCamera(Scene scene);
+		public abstract Nexus.Graphics.Cameras.Camera GetNexusCamera(Scene scene, Viewport viewport);
 	}
 }

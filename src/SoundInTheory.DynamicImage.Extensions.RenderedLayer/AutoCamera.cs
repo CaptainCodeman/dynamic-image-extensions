@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel;
 using Meshellator;
 using Nexus;
+using Nexus.Graphics;
 
 namespace SoundInTheory.DynamicImage
 {
@@ -28,10 +29,10 @@ namespace SoundInTheory.DynamicImage
 			set { ViewState["Zoom"] = value; }
 		}
 
-		public override Nexus.Graphics.Cameras.Camera GetNexusCamera(Scene scene)
+		public override Nexus.Graphics.Cameras.Camera GetNexusCamera(Scene scene, Viewport viewport)
 		{
 			return Nexus.Graphics.Cameras.PerspectiveCamera.CreateFromBounds(
-				scene.Bounds, MathUtility.PI_OVER_4, MathUtility.ToRadians(Yaw),
+				scene.Bounds, viewport, MathUtility.PI_OVER_4, MathUtility.ToRadians(Yaw),
 				MathUtility.ToRadians(-Pitch), Zoom);
 		}
 	}

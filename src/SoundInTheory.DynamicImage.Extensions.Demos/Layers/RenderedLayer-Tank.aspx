@@ -11,7 +11,7 @@
 			<Layers>
 				<sitdap:RenderedLayer Width="600" Height="600" SourceFileName="~/Assets/Models/Obj/Tank.obj" ReverseWindingOrder="true">
 					<Camera>
-						<sitdap:AutoCamera Zoom="0.75" Yaw="45" Pitch="20" />
+						<sitdap:AutoCamera Zoom="1" Yaw="45" Pitch="20" />
 					</Camera>
 				</sitdap:RenderedLayer>
 			</Layers>
