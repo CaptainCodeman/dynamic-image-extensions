@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>DynamicImage.Extensions.Rendered3D</id>
+    <version>1.0.0</version>
+    <title>DynamicImage.Extensions.Rendered3D</title>
+    <authors>Tim Jones</authors>
+    <owners>Tim Jones</owners>
+    <description>3D layer for DynamicImage, capable of rendering 3D meshes loaded from files or declared in markup / code.</description>
+    <summary>3D layer for DynamicImage, capable of rendering 3D meshes loaded from files or declared in markup / code.</summary>
+    <language>en-US</language>
+    <projectUrl>https://github.com/roastedamoeba/dynamic-image-extensions</projectUrl>
+    <!--iconUrl></iconUrl-->
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <tags>.net40 ASP.NET 3D render mesh model OBJ 3DS rasterize</tags>
+    <dependencies>
+      <dependency id="DynamicImage.Core" version="1.0.0.0" />
+    </dependencies> 
+  </metadata>
+</package>

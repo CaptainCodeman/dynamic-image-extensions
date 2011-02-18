@@ -90,21 +90,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.CairFilter\SoundInTheory.DynamicImage.Extensions.CairFilter.csproj">
+    <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.ContentAwareResizing\SoundInTheory.DynamicImage.Extensions.ContentAwareResizing.csproj">
       <Project>{8331A331-78AB-4C35-824B-27908AB11065}</Project>
-      <Name>SoundInTheory.DynamicImage.Extensions.CairFilter</Name>
+      <Name>SoundInTheory.DynamicImage.Extensions.ContentAwareResizing</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.PdfLayer\SoundInTheory.DynamicImage.Extensions.PdfLayer.csproj">
+    <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.Pdf\SoundInTheory.DynamicImage.Extensions.Pdf.csproj">
       <Project>{F2B9BCE6-12C4-4BFA-B562-67E3982EE34E}</Project>
-      <Name>SoundInTheory.DynamicImage.Extensions.PdfLayer</Name>
+      <Name>SoundInTheory.DynamicImage.Extensions.Pdf</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.RenderedLayer\SoundInTheory.DynamicImage.Extensions.RenderedLayer.csproj">
+    <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.Rendered3D\SoundInTheory.DynamicImage.Extensions.Rendered3D.csproj">
       <Project>{789BE1A0-2E7D-4663-B1B4-3A3D205C4A7E}</Project>
-      <Name>SoundInTheory.DynamicImage.Extensions.RenderedLayer</Name>
+      <Name>SoundInTheory.DynamicImage.Extensions.Rendered3D</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.WebsiteScreenshotLayer\SoundInTheory.DynamicImage.Extensions.WebsiteScreenshotLayer.csproj">
+    <ProjectReference Include="..\SoundInTheory.DynamicImage.Extensions.WebsiteScreenshot\SoundInTheory.DynamicImage.Extensions.WebsiteScreenshot.csproj">
       <Project>{FCB2559E-8CC6-40E2-882B-03C71533D859}</Project>
-      <Name>SoundInTheory.DynamicImage.Extensions.WebsiteScreenshotLayer</Name>
+      <Name>SoundInTheory.DynamicImage.Extensions.WebsiteScreenshot</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
