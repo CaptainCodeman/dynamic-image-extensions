@@ -1,0 +1,9 @@
+<configuration>
+  <system.web>
+    <pages>
+      <controls>
+        <add tagPrefix="sitdap" namespace="SoundInTheory.DynamicImage" assembly="SoundInTheory.DynamicImage.Extensions.WebsiteScreenshot" />
+      </controls>
+    </pages>
+  </system.web>
+</configuration>
