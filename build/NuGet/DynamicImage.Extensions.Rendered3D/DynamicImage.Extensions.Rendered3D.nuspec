@@ -16,6 +16,7 @@
     <tags>.net40 ASP.NET 3D render mesh model OBJ 3DS rasterize</tags>
     <dependencies>
       <dependency id="DynamicImage.Core" version="1.0.0.0" />
+      <dependency id="DotWarp" version="1.0.0.0" />
     </dependencies> 
   </metadata>
 </package>
