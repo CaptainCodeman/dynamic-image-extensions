@@ -1,0 +1,9 @@
+<configuration>
+  <system.web>
+    <pages>
+      <controls>
+        <add tagPrefix="sitdap" namespace="SoundInTheory.DynamicImage.Filters" assembly="SoundInTheory.DynamicImage.Extensions.CairFilter" />
+      </controls>
+    </pages>
+  </system.web>
+</configuration>

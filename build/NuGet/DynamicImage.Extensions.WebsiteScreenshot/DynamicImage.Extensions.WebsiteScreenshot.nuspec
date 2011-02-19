@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>DynamicImage.Extensions.WebsiteScreenshot</id>
+    <version>1.0.0</version>
+    <title>DynamicImage.Extensions.WebsiteScreenshot</title>
+    <authors>Tim Jones</authors>
+    <owners>Tim Jones</owners>
+    <description>Website screenshot layer for DynamicImage that can generate a screenshot of a specified URL.</description>
+    <summary>Website screenshot layer for DynamicImage.</summary>
+    <language>en-US</language>
+    <projectUrl>https://github.com/roastedamoeba/dynamic-image-extensions</projectUrl>
+    <!--iconUrl></iconUrl-->
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <tags>.net40 ASP.NET screenshot</tags>
+    <dependencies>
+      <dependency id="DynamicImage.Core" version="1.0.0.0" />
+    </dependencies> 
+  </metadata>
+</package>

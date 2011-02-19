@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>DynamicImage.Extensions.ContentAwareResizing</id>
+    <version>1.0.0</version>
+    <title>DynamicImage.Extensions.ContentAwareResizing</title>
+    <authors>Tim Jones</authors>
+    <owners>Tim Jones</owners>
+    <description>Content Aware Resizing filter for DynamicImage.</description>
+    <summary>Content Aware Resizing filter for DynamicImage.</summary>
+    <language>en-US</language>
+    <projectUrl>https://github.com/roastedamoeba/dynamic-image-extensions</projectUrl>
+    <!--iconUrl></iconUrl-->
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <tags>.net40 CAIR content aware image resizing</tags>
+    <dependencies>
+      <dependency id="DynamicImage.Core" version="1.0.0.0" />
+    </dependencies> 
+  </metadata>
+</package>
