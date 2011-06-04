@@ -16,7 +16,9 @@ namespace SoundInTheory.DynamicImage
 
 		public CutyCaptWrapper()
 		{
-			CutyCaptPath = HttpContext.Current.Server.MapPath("~/App_Data/DynamicImage/CutyCapt.exe"); // must be within the web root
+			CutyCaptPath = HttpContext.Current == null
+				? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"App_Data\DynamicImage\CutyCapt.exe")
+				: HttpContext.Current.Server.MapPath("~/App_Data/DynamicImage/CutyCapt.exe");
 			CutyCaptDefaultArguments = " --max-wait=0 --out-format=png --javascript=off --java=off --plugins=off --js-can-open-windows=off --js-can-access-clipboard=off --private-browsing=on";
 		}
 

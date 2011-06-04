@@ -16,7 +16,9 @@ namespace SoundInTheory.DynamicImage.Util
 
 		public CairWrapper()
 		{
-			CairPath = HttpContext.Current.Server.MapPath("~/App_Data/DynamicImage/CAIR.exe"); // must be within the web root
+			CairPath = HttpContext.Current == null 
+				? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"App_Data\DynamicImage\CAIR.exe") 
+				: HttpContext.Current.Server.MapPath("~/App_Data/DynamicImage/CAIR.exe");
 		}
 
 		public bool ProcessImage(string sourceFile, string destinationFile, int timeout, int width, int height,
