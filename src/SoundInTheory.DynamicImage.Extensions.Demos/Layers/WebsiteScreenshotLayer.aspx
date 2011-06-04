@@ -9,7 +9,7 @@
     <div>
 			<sitdap:DynamicImage runat="server" ImageFormat="Jpeg">
 				<Layers>
-					<sitdap:WebsiteScreenshotLayer WebsiteUrl="http://www.microsoft.com" Timeout="3000">
+					<sitdap:WebsiteScreenshotLayer WebsiteUrl="http://www.microsoft.com" Timeout="3000" Width="1024">
 						<Filters>
 							<sitdap:ResizeFilter Width="500" Mode="UseWidth" />
 							<sitdap:CropFilter Width="500" Height="500" />

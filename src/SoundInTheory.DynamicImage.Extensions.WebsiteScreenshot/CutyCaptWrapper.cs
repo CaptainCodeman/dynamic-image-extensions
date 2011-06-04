@@ -20,12 +20,12 @@ namespace SoundInTheory.DynamicImage
 			CutyCaptDefaultArguments = " --max-wait=0 --out-format=png --javascript=off --java=off --plugins=off --js-can-open-windows=off --js-can-access-clipboard=off --private-browsing=on";
 		}
 
-		public bool SaveScreenShot(string url, string destinationFile, int timeout)
+		public bool SaveScreenShot(string url, string destinationFile, int timeout, int width)
 		{
 			if (!Uri.IsWellFormedUriString(url, UriKind.Absolute))
 				return false;
 
-			string runArguments = " --url=" + url + " --out=" + destinationFile + CutyCaptDefaultArguments;
+			string runArguments = " --url=" + url + " --out=" + destinationFile + CutyCaptDefaultArguments + " --min-width=" + width;
 
 			if (!File.Exists(CutyCaptPath))
 				throw new DynamicImageException("Could not find CutyCapt.exe. This file needs to be in ~/App_Data/DynamicImage.");

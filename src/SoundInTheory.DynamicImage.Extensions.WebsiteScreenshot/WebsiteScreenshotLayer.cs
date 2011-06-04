@@ -23,6 +23,16 @@ namespace SoundInTheory.DynamicImage
 			set { ViewState["Timeout"] = value; }
 		}
 
+		/// <summary>
+		/// Width to use for browser rendering, in pixels.
+		/// </summary>
+		[DefaultValue(1024), Description("Width to use for browser rendering, in pixels.")]
+		public int Width
+		{
+			get { return (int)(ViewState["Width"] ?? 1024); }
+			set { ViewState["Width"] = value; }
+		}
+
 		public override bool HasFixedSize
 		{
 			get { return true; }
@@ -34,7 +44,7 @@ namespace SoundInTheory.DynamicImage
 
 			try
 			{
-				if (!new CutyCaptWrapper().SaveScreenShot(WebsiteUrl, outputFileName, Timeout))
+				if (!new CutyCaptWrapper().SaveScreenShot(WebsiteUrl, outputFileName, Timeout, Width))
 					return;
 				Bitmap = new Util.FastBitmap(File.ReadAllBytes(outputFileName));
 			}
